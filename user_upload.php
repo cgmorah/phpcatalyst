@@ -1,6 +1,6 @@
 <?php
 // Get command line arguments
-$options = getopt("f:", ["file:", "create_table", "dry_run", "u:", "p:", "h", "help"]);
+$options = getopt("f:", ["file:", "create_table", "dry_run", "u:", "p:", "h", "help", "no_header"]);
 
 // Check if help option was provided
 if (isset($options['help'])) {
@@ -54,10 +54,13 @@ if (isset($options['f']) || isset($options['file'])) {
             // Check if the --dry_run option was given
             $dryRun = isset($options['dry_run']);
 
+            // Check if the --no_header option was given
+            $noHeader = isset($options['no_header']);
+
             // Read the CSV file and process records
             $file = fopen($csvFile, 'r');
             if ($file) {
-                $isFirstLine = true; // Variable to check if it's the first line (header)
+                $isFirstLine = !$noHeader; // Skip the first line if the file has a header
                 while (($line = fgetcsv($file, 0, ',')) !== false) {
                     if ($isFirstLine) {
                         $isFirstLine = false;
