@@ -24,6 +24,7 @@ if ($file) {
 
     // Close the file
     fclose($file);
+    
 } else {
     echo "Failed to open the file $csvFile";
 }
