@@ -12,6 +12,12 @@ for ($i = 1; $i <= 100; $i++) {
         echo $i;
     }
 
-    echo PHP_EOL;
+    // Print a comma and a space after each number, except the last one
+    if ($i < 100) {
+        echo ", ";
+    }
 }
+
+// Print a newline after the last number
+echo PHP_EOL;
 ?>
