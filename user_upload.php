@@ -42,7 +42,6 @@ if (isset($options['f']) || isset($options['file'])) {
                 surname VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL UNIQUE
             )";
-
             if ($conn->query($sql) === true) {
                 echo "The 'users' table has been created successfully." . PHP_EOL;
             } else {
@@ -50,36 +49,40 @@ if (isset($options['f']) || isset($options['file'])) {
             }
         }
 
-        // Read the CSV file and process records
-        $file = fopen($csvFile, 'r');
-        if ($file) {
-            while (($line = fgetcsv($file, 0, '|')) !== false) {
-                $name = ucfirst(strtolower($line[1]));
-                $surname = ucfirst(strtolower($line[2]));
-                $email = strtolower($line[3]);
+        // Read the CSV file and process records if the --file option was given
+        if (isset($options['file'])) {
+            // Check if the --dry_run option was given
+            $dryRun = isset($options['dry_run']);
 
-                // Validate email format
-                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    // Insert record in database if not running in dry run mode
-                    if (!isset($options['dry_run'])) {
-                        $sql = "INSERT INTO users (name, surname, email) VALUES ('$name', '$surname', '$email')";
-                        if ($conn->query($sql) === true) {
-                            echo "Record inserted successfully: $name $surname $email" . PHP_EOL;
+            // Read the CSV file and process records
+            $file = fopen($csvFile, 'r');
+            if ($file) {
+                while (($line = fgetcsv($file, 0, '|')) !== false) {
+                    $name = ucfirst(strtolower($line[1]));
+                    $surname = ucfirst(strtolower($line[2]));
+                    $email = strtolower($line[3]);
+                    // Validate email format
+                    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        // Insert record in database if not running in dry run mode
+                        if (!$dryRun) {
+                            $sql = "INSERT INTO users (name, surname, email) VALUES ('$name', '$surname', '$email')";
+                            if ($conn->query($sql) === true) {
+                                echo "Record inserted successfully: $name $surname $email" . PHP_EOL;
+                            } else {
+                                echo "Error inserting record: " . $conn->error . PHP_EOL;
+                            }
                         } else {
-                            echo "Error inserting record: " . $conn->error . PHP_EOL;
+                            echo "Dry run mode: Record not inserted: $name $surname $email" . PHP_EOL;
                         }
                     } else {
-                        echo "Dry run mode: Record not inserted: $name $surname $email" . PHP_EOL;
+                        echo "Error: Invalid email format: $email" . PHP_EOL;
                     }
-                } else {
-                    echo "Error: Invalid email format: $email" . PHP_EOL;
                 }
+                fclose($file);
+            } else {
+                echo "Error opening file $csvFile" . PHP_EOL;
             }
-            fclose($file);
-        } else {
-            echo "Error opening file $csvFile" . PHP_EOL;
         }
-
         // Close the database connection
         $conn->close();
     } else {
