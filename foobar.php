@@ -3,11 +3,11 @@
 for ($i = 1; $i <= 100; $i++) {
     // Check the specified rules
     if ($i % 3 == 0 && $i % 5 == 0) {
-        echo "FizzBuzz";
+        echo "foobar";
     } elseif ($i % 3 == 0) {
-        echo "Fizz";
+        echo "foo";
     } elseif ($i % 5 == 0) {
-        echo "Buzz";
+        echo "bar";
     } else {
         echo $i;
     }
