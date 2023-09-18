@@ -24,9 +24,9 @@ if (isset($options['f']) || isset($options['file'])) {
     if (file_exists($csvFile)) {
         // Connect to MySQL database
         $host = isset($options['h']) ? $options['h'] : "localhost";
-        $username = isset($options['u']) ? $options['u'] : "your_username";
-        $password = isset($options['p']) ? $options['p'] : "your_password";
-        $database = "your_database";
+        $username = isset($options['u']) ? $options['u'] : "cgmorah";
+        $password = isset($options['p']) ? $options['p'] : "1771";
+        $database = "test_database";
         $conn = new mysqli($host, $username, $password, $database);
 
         // Check if the connection was successful
@@ -57,12 +57,25 @@ if (isset($options['f']) || isset($options['file'])) {
             // Read the CSV file and process records
             $file = fopen($csvFile, 'r');
             if ($file) {
-                while (($line = fgetcsv($file, 0, '|')) !== false) {
-                    $name = ucfirst(strtolower($line[1]));
-                    $surname = ucfirst(strtolower($line[2]));
-                    $email = strtolower($line[3]);
+                $isFirstLine = true; // Variable to check if it's the first line (header)
+                while (($line = fgetcsv($file, 0, ',')) !== false) {
+                    if ($isFirstLine) {
+                        $isFirstLine = false;
+                        continue; // Skip the first line (header)
+                    }
+                    $name = $conn->real_escape_string(trim(ucwords(preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($line[0])))));
+                    $surname = $conn->real_escape_string(trim(ucwords(preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($line[1])))));
+                    $email = $conn->real_escape_string(trim(strtolower($line[2])));
                     // Validate email format
-                    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    if (filter_var($email, FILTER_VALIDATE_EMAIL) && checkdnsrr(explode('@', $email)[1], 'MX')) {
+                        // Check for duplicates
+                        $duplicateCheckQuery = "SELECT COUNT(*) as count FROM users WHERE email = '$email'";
+                        $duplicateCheckResult = $conn->query($duplicateCheckQuery);
+                        $duplicateCheckRow = $duplicateCheckResult->fetch_assoc();
+                        if ($duplicateCheckRow['count'] > 0) {
+                            echo "Error: Duplicate email found: $email" . PHP_EOL;
+                            continue; // Skip inserting the current record
+                        }
                         // Insert record in database if not running in dry run mode
                         if (!$dryRun) {
                             $sql = "INSERT INTO users (name, surname, email) VALUES ('$name', '$surname', '$email')";
