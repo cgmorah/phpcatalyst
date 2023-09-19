@@ -7,7 +7,7 @@ This project is a PHP programming evaluation for Catalyst IT. The goal is to cre
 - [Project Description](#user-content-project-description-)
 - [Requirements](#user-content-requirements-)
 - [Dependencies](#user-content-dependencies-)
-- [Installation](#user-content-installation-)
+- [Installation](#user-content-installation-️)
 - [Command Line Options](#user-content-command-line-options-)
 - [User Table Definition](#user-content-user-table-definition-)
 - [Data Processing](#user-content-data-processing-)
