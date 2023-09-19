@@ -14,6 +14,7 @@ This project is a PHP programming evaluation for Catalyst IT. The goal is to cre
 - [Error Handling](#user-content-error-handling-️)
 - [Source Code Control](#user-content-source-code-control-)
 - [Assumptions](#user-content-assumptions-)
+- [Screenshots](#user-screenshots-)
 - [Contact](#user-content-contact-)
 
 ## Project Description 📋
@@ -115,6 +116,12 @@ The code for this project is managed using Git as the Version Control System. Th
 - PHP version 8.1.x is used.
 - The MySQL database server is already installed and is version 5.7 or higher (or MariaDB 10.x).
 - The database user details can be configured.
+
+## Screenshots 📷
+
+Here are some screenshots of the project:
+
+![Screenshot](./screenshots.png)
 
 ## Contact 📞
 
