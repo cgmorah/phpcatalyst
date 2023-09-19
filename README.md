@@ -8,10 +8,10 @@ This project is a PHP programming evaluation for Catalyst IT. The goal is to cre
 - [Requirements](#user-content-requirements-)
 - [Dependencies](#user-content-dependencies-)
 - [Installation](#user-content-installation-️)
-- [Command Line Options](#user-content-command-line-options-)
+- [Command Line Options](#user-content-command-line-options-️)
 - [User Table Definition](#user-content-user-table-definition-)
 - [Data Processing](#user-content-data-processing-)
-- [Error Handling](#user-content-error-handling-)
+- [Error Handling](#user-content-error-handling-️)
 - [Source Code Control](#user-content-source-code-control-)
 - [Assumptions](#user-content-assumptions-)
 - [Contact](#user-content-contact-)
@@ -118,8 +118,8 @@ The code for this project is managed using Git as the Version Control System. Th
 
 ## Contact 📞
 
-For any questions or support, please contact [your email address].
+For any questions or support, please contact cgmorah@gmail.com.
 
 ---
 
-Made with ❤️ by Giovanni Mora (https://github.com/cgmorah)
+Made with ❤️ by [Giovanni Mora](https://github.com/cgmorah)
