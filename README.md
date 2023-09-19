@@ -51,24 +51,20 @@ This project requires the following dependencies:
 
 1. **PHP**: This project requires PHP version 8.1.x. You can install it on Ubuntu using the following command:
 ```
-bash
 sudo apt-get install php8.1
 ```
 
 2. **MySQLi**: This is a PHP extension that allows interaction with MySQL databases. You can install it on Ubuntu using the following command:    
 ```
-bash
 sudo apt-get install php-mysqli
 ```
 
 3. **MySQL Server**: This project requires a MySQL server to store user data. You can install MySQL Server on Ubuntu using the following command:
 ```
-bash
 sudo apt-get install mysql-server
 ```
 4. **Git**: This project uses Git as its version control system. You can install Git on Ubuntu using the following command:
 ```
-bash
 sudo apt-get install git
 ```
 Please ensure that these dependencies are installed before running the script.
