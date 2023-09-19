@@ -1,7 +1,6 @@
 <?php
 // Get command line arguments
-$options = getopt("f:", ["file:", "create_table", "dry_run", "u:", "p:", "h", "help", "no_header"]);
-
+$options = getopt("f:u:p:h:", ["file:", "create_table", "dry_run", "help", "no_header"]);
 // Check if help option was provided
 if (isset($options['help'])) {
     echo "Command line options:\n";
@@ -23,9 +22,9 @@ if (isset($options['f']) || isset($options['file'])) {
     // Check if the file exists
     if (file_exists($csvFile)) {
         // Connect to MySQL database
-        $host = isset($options['h']) ? $options['h'] : "localhost";
-        $username = isset($options['u']) ? $options['u'] : "cgmorah";
-        $password = isset($options['p']) ? $options['p'] : "1771";
+        $host = isset($options['h']) ? $options['h'] : "";
+        $username = isset($options['u']) ? $options['u'] : "";
+        $password = isset($options['p']) ? $options['p'] : "";
         $database = "test_database";
         $conn = new mysqli($host, $username, $password, $database);
 
