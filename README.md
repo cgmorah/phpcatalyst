@@ -107,7 +107,7 @@ The script is designed to be robust and gracefully handle errors and exceptions.
 
 ## Source Code Control 📝
 
-The code for this project is managed using Git as the Version Control System. The repository is available at https://github.com/cgmorah/phpcatalyst.
+The code for this project is managed using Git as the Version Control System. The repository is available at https://github.com/cgmorah/phpcatalyst
 
 ## Assumptions 💡
 
@@ -118,7 +118,7 @@ The code for this project is managed using Git as the Version Control System. Th
 
 ## Contact 📞
 
-For any questions or support, please contact cgmorah@gmail.com.
+For any questions or support, please contact cgmorah@gmail.com
 
 ---
 
