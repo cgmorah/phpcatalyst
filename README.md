@@ -4,17 +4,17 @@ This project is a PHP programming evaluation for Catalyst IT. The goal is to cre
 
 ## Table of Contents 📚
 
-- [Project Description](#project-description)
-- [Requirements](#requirements)
-- [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Command Line Options](#command-line-options)
-- [User Table Definition](#user-table-definition)
-- [Data Processing](#data-processing)
-- [Error Handling](#error-handling)
-- [Source Code Control](#source-code-control)
-- [Assumptions](#assumptions)
-- [Contact](#contact)
+- [Project Description](#user-content-project-description-)
+- [Requirements](#user-content-requirements)
+- [Dependencies](#user-content-dependencies)
+- [Installation](#user-content-installation)
+- [Command Line Options](#user-content-command-line-options)
+- [User Table Definition](#user-content-user-table-definition)
+- [Data Processing](#user-content-data-processing)
+- [Error Handling](#user-content-error-handling)
+- [Source Code Control](#user-content-source-code-control)
+- [Assumptions](#user-content-assumptions)
+- [Contact](#user-content-contact)
 
 ## Project Description 📋
 
@@ -111,7 +111,7 @@ The script is designed to be robust and gracefully handle errors and exceptions.
 
 ## Source Code Control 📝
 
-The code for this project is managed using Git as the Version Control System. The repository is available at [https://github.com/cgmorah/phpcatalyst].
+The code for this project is managed using Git as the Version Control System. The repository is available at https://github.com/cgmorah/phpcatalyst.
 
 ## Assumptions 💡
 
